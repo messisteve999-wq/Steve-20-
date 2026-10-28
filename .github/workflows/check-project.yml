@@ -1,0 +1,25 @@
+name: Check Steve-20- Godot project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check project files
+        run: |
+          test -f project.godot
+          test -f scenes/Main.tscn
+          test -f scripts/main.gd
+          test -f scripts/enemy.gd
+          test -f scripts/tower.gd
+          echo "Structure Steve-20- OK"
+      - name: Show project metadata
+        run: grep 'config/name' project.godot
