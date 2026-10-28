@@ -98,8 +98,9 @@ jobs:
         run: |
           set -e
           mkdir -p build
+          "$GODOT" --headless --editor --path . --quit --verbose
           "$GODOT" --headless --path . \
-            --export-debug "Android" "build/Steve-20-.apk"
+                   --export-debug "Android" "build/Steve-20-.apk" --verbose
           test -s build/Steve-20-.apk
           ls -lh build/Steve-20-.apk
 
