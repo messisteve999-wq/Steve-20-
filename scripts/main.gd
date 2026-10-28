@@ -173,7 +173,7 @@ func _show_game() -> void:
     ))
 
 func _run_wave() -> void:
-    var damage := max(1, 4 - towers)
+    var damage: int = maxi(1, 4 - towers)
     kingdom_hp = max(0, kingdom_hp - damage)
     gold += 40 + towers * 5
     gems += 10
